@@ -149,7 +149,8 @@ public class RenderHandler
 			return;
 		}
 		
-		if(event.type == ElementType.CHAT || event.type == ElementType.ARMOR || event.type == ElementType.EXPERIENCE || event.type == ElementType.FOOD || event.type == ElementType.HEALTH || event.type == ElementType.HEALTHMOUNT || event.type == ElementType.JUMPBAR/* || event.type == ElementType.TEXT*/)
+		if(/*event.type == ElementType.CHAT ||*/ event.type == ElementType.ARMOR || event.type == ElementType
+		.EXPERIENCE || event.type == ElementType.FOOD || event.type == ElementType.HEALTH || event.type == ElementType.HEALTHMOUNT || event.type == ElementType.JUMPBAR/* || event.type == ElementType.TEXT*/)
     	{
     		// In some cases the post render event is not received (when the pre event is cancelled by another mod), in the case, go ahead an pop the matrix before continuing
     		if(recievedPost == false)
@@ -167,7 +168,7 @@ public class RenderHandler
     	}
     }
 
-	@SubscribeEvent(priority = EventPriority.HIGHEST)
+	@SubscribeEvent(priority = EventPriority.LOWEST)
     public void shiftRendererDown(RenderGameOverlayEvent.Post event)
     {
 		if(!DualHotbarConfig.enable || (!DualHotbarConfig.twoLayerRendering && DualHotbarConfig.numHotbars != 4))
@@ -175,7 +176,8 @@ public class RenderHandler
 			return;
 		}
 		
-    	if(event.type == ElementType.CHAT ||event.type == ElementType.ARMOR || event.type == ElementType.EXPERIENCE || event.type == ElementType.FOOD || event.type == ElementType.HEALTH || event.type == ElementType.HEALTHMOUNT || event.type == ElementType.JUMPBAR/* || event.type == ElementType.TEXT*/)
+    	if(/*event.type == ElementType.CHAT ||*/ event.type == ElementType.ARMOR || event.type == ElementType.EXPERIENCE
+    	 || event.type == ElementType.FOOD || event.type == ElementType.HEALTH || event.type == ElementType.HEALTHMOUNT || event.type == ElementType.JUMPBAR/* || event.type == ElementType.TEXT*/)
     	{
     		recievedPost = true;
     		GL11.glPopMatrix();
